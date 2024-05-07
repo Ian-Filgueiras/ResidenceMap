@@ -1,11 +1,11 @@
-class iCondominoRepository{
+class iSindicoRepository{
     constructor() {
-        if (new.target === iCondominoRepository) {
-            throw new Error("A interface iCondominoRepository não pode ser instanciada.");
+        if (new.target === iSindicoRepository) {
+            throw new Error("A interface iSindicoRepository não pode ser instanciada.");
         }
     }
 
-    adicionarCondomino = async (condomino) => {
+    adicionarSindico = async (sindico) => {
         throw new Error("Esse método não pode ser chamado")
     }
 
@@ -18,4 +18,4 @@ class iCondominoRepository{
     };
 }
 
-module.exports = iCondominoRepository;
+module.exports = iSindicoRepository;
