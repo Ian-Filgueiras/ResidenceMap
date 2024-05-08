@@ -10,7 +10,7 @@ class VisitantesRepository extends iVisitantesRepository {
         const novoVisitante = await Visitante.create({
             nome: visitante.nome,
             cpf: visitante.cpf,
-            dataVisita: visitante.data_visita,
+            data_visita: visitante.data_visita,
             idCondomino: visitante.idCondomino,
         });
     };

@@ -10,7 +10,7 @@ class CondominioRepository extends ICondominioRepository {
         const novoCondominio = await Condominio.create({
             nome: condominio.nome,
             endereco: condominio.endereco,
-            numero_unidades: condominio.numero_unidade,
+            numero_unidades: condominio.numero_unidades,
         });
     };
   

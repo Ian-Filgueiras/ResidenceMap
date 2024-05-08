@@ -1,5 +1,5 @@
 const IComunicacaoRepository = require("../interfaces/iComunicacao");
-const { Condomino } = require("../data/dbContext");
+const { Comunicacao } = require("../data/dbContext");
 
 class ComunicacaoRepository extends IComunicacaoRepository {
     constructor() {
