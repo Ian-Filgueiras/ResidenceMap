@@ -15,12 +15,12 @@ class ReservasRepository extends IReservasRepository {
     });
   };
 
-  get = async (nome) => {
+  get = async (descricao) => {
     let reserva = await Reservas.findOne({
-      where: { nome: nome },
+      where: { descricao: descricao },
     });
 
-    return condomino;
+    return reserva;
   };
 
   getAll = async () => {

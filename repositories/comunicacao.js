@@ -16,9 +16,9 @@ class ComunicacaoRepository extends IComunicacaoRepository {
         });
     };
   
-    get = async (nome) => {
+    get = async (idPorteiro) => {
       let comunicacao = await Comunicacao.findOne({
-        where: { nome: nome },
+        where: { idPorteiro: idPorteiro },
       });
   
       return condomino;
