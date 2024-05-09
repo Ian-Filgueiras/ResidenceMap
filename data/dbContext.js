@@ -1,6 +1,6 @@
 const dbConfig = require("../config/dbConfig.js");
 
-const { Sequelize, DataTypes } = require("sequelize");
+const { Sequelize, DataTypes, ForeignKeyConstraintError } = require("sequelize");
 
 const sequelize = new Sequelize(
   dbConfig.DB,
@@ -29,6 +29,7 @@ const Condomino = require("./condomino")(sequelize, DataTypes);
 const Comunicacao = require("./comunicacao")(sequelize, DataTypes);
 const Reservas = require("./reservas")(sequelize, DataTypes);
 const Visitante = require("./visitante")(sequelize, DataTypes);
+//const ComunicacaoJuncao = require('./comunicacaoJuncao')(sequelize, DataTypes);
 
 sequelize
   .sync({ alter: true })
@@ -39,12 +40,41 @@ sequelize
     console.log("Erros: " + err);
   });
 
-  module.exports = {
-    Condominio,
-    Porteiro,
-    Sindico,
-    Condomino,
-    Comunicacao,
-    Reservas,
-    Visitante
-  };
+Condomino.hasMany(Comunicacao, {
+  foreignKey: 'idPorteiro'
+});
+
+Porteiro.hasMany(Comunicacao, {
+  foreignKey: 'idCondomino'
+});
+
+
+Condominio.hasMany(Porteiro, {
+  foreignKey: 'idCondominio'
+});
+
+Condominio.hasMany(Condomino, {
+  foreignKey: 'idCondominio'
+});
+Condominio.hasMany(Sindico, {
+  foreignKey: 'idCondominio'
+});
+
+
+Condomino.hasMany(Reservas,{
+  foreignKey: 'idCondomino'
+})
+
+Condomino.hasMany(Visitante,{
+  foreignKey: 'idCondomino'
+})
+
+module.exports = {
+  Condominio,
+  Porteiro,
+  Sindico,
+  Condomino,
+  Comunicacao,
+  Reservas,
+  Visitante
+};
