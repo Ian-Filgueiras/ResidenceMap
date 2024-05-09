@@ -21,7 +21,7 @@ class ComunicacaoRepository extends IComunicacaoRepository {
         where: { idPorteiro: idPorteiro },
       });
   
-      return condomino;
+      return comunicacao;
     };
   
     getAll = async () => {
