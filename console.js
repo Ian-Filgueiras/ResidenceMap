@@ -30,7 +30,7 @@ let reservasRepository = new ReservasRepository();
 reservasRepository.adicionarReserva({data_inicio: "08-05-2024",data_fim:"09-05-2024",descricao: "salao de festa" , idCondomino: 1});
 
 
-const ComunicacaoRepository = require("./repositories/comunicacao");
+const ComunicacaoRepository = require("./repositories/comunicacaoRepository");
 
 let comunicacaoRepository = new ComunicacaoRepository();
-comunicacaoRepository.adicionarComunicacao({text: "ola paulo",data_envio:"08-05-2024",idPorteiro: 1 ,idCondomino: 1, mensagem_p_para_c: true});
+comunicacaoRepository.adicionarComunicacao({text: "ola paulo",idPorteiro: 1 ,idCondomino: 1, mensagem_p_para_c: true});

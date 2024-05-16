@@ -4,6 +4,7 @@ module.exports = {
   PASSWORD: "root",
   DB: "residencemap",
   PORT: "3306",
-  DIALECT: "mysql"
+  DIALECT: "mysql",
+  TIMEZONE: "-03:00"
 }
 

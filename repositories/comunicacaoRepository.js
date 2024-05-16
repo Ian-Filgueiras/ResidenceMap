@@ -1,4 +1,4 @@
-const IComunicacaoRepository = require("../interfaces/iComunicacao");
+const IComunicacaoRepository = require("../interfaces/iComunicacaoRepository");
 const { Comunicacao } = require("../data/dbContext");
 
 class ComunicacaoRepository extends IComunicacaoRepository {
@@ -9,7 +9,6 @@ class ComunicacaoRepository extends IComunicacaoRepository {
     adicionarComunicacao = async (comunicacao) => {
         const novaComunicacao = await Comunicacao.create({
             text: comunicacao.text,
-            data_envio: comunicacao.data_envio,
             idPorteiro: comunicacao.idPorteiro,
             idCondomino: comunicacao.idCondomino,
             mensagem_p_para_c: comunicacao.mensagem_p_para_c,

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         data_envio: {
             type: DataTypes.DATE,
-            allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
         idPorteiro: {
           type: DataTypes.INTEGER,
