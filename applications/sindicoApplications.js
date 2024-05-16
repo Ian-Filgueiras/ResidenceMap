@@ -7,8 +7,8 @@ class SindicoApplication {
         this.sindicoRepository.adicionarSindico(sindico);
     };
   
-    get = async (nome) => {
-      return await this.sindicoRepository.get(nome)
+    get = async (id) => {
+      return await this.sindicoRepository.get(id)
     };
   
     getAll = async () => {

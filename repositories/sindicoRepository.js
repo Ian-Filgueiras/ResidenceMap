@@ -16,9 +16,9 @@ class SindicoRepository extends iSindicoRepository {
         });
     };
   
-    get = async (nome) => {
+    get = async (id) => {
       let sindico = await Sindico.findOne({
-        where: { nome: nome },
+        where: { id: id },
       });
   
       return sindico;

@@ -9,7 +9,7 @@ class iComunicacaoRepository{
         throw new Error("Esse método não pode ser chamado")
     }
 
-    get = async (nome) => {
+    get = async (idPorteiro) => {
         throw new Error("Esse método não pode ser chamado")
     }
 

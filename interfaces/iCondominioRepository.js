@@ -9,7 +9,7 @@ class iCondominioRepository{
         throw new Error("Esse método não pode ser chamado")
     }
 
-    get = async (nome) => {
+    get = async (id) => {
         throw new Error("Esse método não pode ser chamado")
     }
 

@@ -65,11 +65,49 @@ app.get('/api/sindico', async (req, res) => {
 })
 
 //Visitante
+const VisitanteRepository = require("./repositories/visitanteRepository");
+const VisitanteApplication = require("./applications/visitanteApplications");
+const VisitanteFacade = require("./facade/visitanteFacade");
+
+const visitanteRepository = new VisitanteRepository();
+const visitanteApplication = new VisitanteApplication(visitanteRepository);
+const visitanteFacade = new VisitanteFacade(visitanteApplication);
+
+
+app.get('/api/visitante', async (req, res) => {
+  let visitantes = await visitanteFacade.getAll();
+  res.json(visitantes);
+})
 
 //Reservas
+const ReservasRepository = require("./repositories/reservasRepository");
+const ReservasApplication = require("./applications/reservasApplications");
+const ReservasFacade = require("./facade/reservasFacade");
+
+const reservasRepository = new ReservasRepository();
+const reservasApplication = new ReservasApplication(reservasRepository);
+const reservasFacade = new ReservasFacade(reservasApplication);
+
+
+app.get('/api/reservas', async (req, res) => {
+  let reservas = await reservasFacade.getAll();
+  res.json(reservas);
+})
 
 //Comunicação
+const ComunicacaoRepository = require("./repositories/comunicacaoRepository");
+const ComunicacaoApplication = require("./applications/comunicacaoApplications");
+const ComunicacaoFacade = require("./facade/comunicacaoFacade");
 
+const comunicacaoRepository = new ComunicacaoRepository();
+const comunicacaoApplication = new ComunicacaoApplication(comunicacaoRepository);
+const comunicacaoFacade = new ComunicacaoFacade(comunicacaoApplication);
+
+
+app.get('/api/comunicacao', async (req, res) => {
+  let comunicacao = await comunicacaoFacade.getAll();
+  res.json(comunicacao);
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

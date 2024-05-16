@@ -7,8 +7,8 @@ class CondominioFacade{
       this.condominioApplication.adicionarCondominio(condominio);
     };
   
-    get = async (nome) => {
-      return await this.condominioApplication.get(nome)
+    get = async (id) => {
+      return await this.condominioApplication.get(id)
     };
   
     getAll = async () => {

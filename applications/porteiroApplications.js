@@ -7,8 +7,8 @@ class PorteiroApplication {
         this.porteiroRepository.adicionarPorteiro(porteiro);
     };
   
-    get = async (nome) => {
-      return await this.porteiroRepository.get(nome)
+    get = async (id) => {
+      return await this.porteiroRepository.get(id)
     };
   
     getAll = async () => {

@@ -7,8 +7,8 @@ class SindicoFacade {
         this.sindicoApplications.adicionarSindico(sindico);
     };
   
-    get = async (nome) => {
-      return await this.sindicoApplications.get(nome)
+    get = async (id) => {
+      return await this.sindicoApplications.get(id)
     };
   
     getAll = async () => {

@@ -15,9 +15,9 @@ class VisitantesRepository extends iVisitantesRepository {
         });
     };
 
-    get = async (nome) => {
+    get = async (id) => {
         let visitante = await Visitante.findOne({
-            where: { nome: nome },
+            where: { id: id },
         });
 
         return visitante;

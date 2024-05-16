@@ -15,9 +15,9 @@ class ReservasRepository extends IReservasRepository {
     });
   };
 
-  get = async (descricao) => {
+  get = async (id) => {
     let reserva = await Reservas.findOne({
-      where: { descricao: descricao },
+      where: { id: id },
     });
 
     return reserva;

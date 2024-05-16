@@ -14,9 +14,9 @@ class CondominioRepository extends ICondominioRepository {
         });
     };
   
-    get = async (nome) => {
+    get = async (id) => {
       let condominio = await Condominio.findOne({
-        where: { nome: nome },
+        where: { id: id },
       });
   
       return condominio;

@@ -16,9 +16,9 @@ class PorteiroRepository extends IPorteiroRepository {
         });
     };
   
-    get = async (nome) => {
+    get = async (id) => {
       let porteiro = await Porteiro.findOne({
-        where: { nome: nome },
+        where: { id: id },
       });
   
       return porteiro;

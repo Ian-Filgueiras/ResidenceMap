@@ -7,8 +7,8 @@ class CondominioApplication{
         this.condominioRepository.adicionarCondominio(condominio);
     };
   
-    get = async (nome) => {
-      return await this.condominioRepository.get(nome)
+    get = async (id) => {
+      return await this.condominioRepository.get(id)
     };
   
     getAll = async () => {
