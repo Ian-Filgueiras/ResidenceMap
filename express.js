@@ -18,6 +18,12 @@ app.get('/api/condominio', async (req, res) => {
   res.json(condominios);
 })
 
+app.get('/api/condominio/:id', async (req, res) => {
+  let id = req.params.id;
+  let condominio = await condominioFacade.get(id);
+  res.json(condominio);
+})
+
 
 //Condomino
 const CondominoRepository = require("./repositories/condominoRepository");
@@ -32,6 +38,12 @@ const condominoFacade = new CondominoFacade(condominoApplication);
 app.get('/api/condomino', async (req, res) => {
   let condominos = await condominoFacade.getAll();
   res.json(condominos);
+})
+
+app.get('/api/condomino/:id', async (req, res) => {
+  let id = req.params.id;
+  let condomino = await condominoFacade.get(id);
+  res.json(condomino);
 })
 
 //Porteiro
@@ -49,6 +61,12 @@ app.get('/api/porteiro', async (req, res) => {
   res.json(porteiros);
 })
 
+app.get('/api/porteiro/:id', async (req, res) => {
+  let id = req.params.id;
+  let porteiro = await porteiroFacade.get(id);
+  res.json(porteiro);
+})
+
 //Sindico
 const SindicoRepository = require("./repositories/sindicoRepository");
 const SindicoApplication = require("./applications/sindicoApplications");
@@ -62,6 +80,12 @@ const sindicoFacade = new SindicoFacade(sindicoApplication);
 app.get('/api/sindico', async (req, res) => {
   let sindicos = await sindicoFacade.getAll();
   res.json(sindicos);
+})
+
+app.get('/api/sindico/:id', async (req, res) => {
+  let id = req.params.id;
+  let sindico = await sindicoFacade.get(id);
+  res.json(sindico);
 })
 
 //Visitante
@@ -79,6 +103,12 @@ app.get('/api/visitante', async (req, res) => {
   res.json(visitantes);
 })
 
+app.get('/api/visitante/:id', async (req, res) => {
+  let id = req.params.id;
+  let visitante = await visitanteFacade.get(id);
+  res.json(visitante);
+})
+
 //Reservas
 const ReservasRepository = require("./repositories/reservasRepository");
 const ReservasApplication = require("./applications/reservasApplications");
@@ -94,6 +124,12 @@ app.get('/api/reservas', async (req, res) => {
   res.json(reservas);
 })
 
+app.get('/api/reservas/:id', async (req, res) => {
+  let id = req.params.id;
+  let reserva = await reservasFacade.get(id);
+  res.json(reserva);
+})
+
 //Comunicação
 const ComunicacaoRepository = require("./repositories/comunicacaoRepository");
 const ComunicacaoApplication = require("./applications/comunicacaoApplications");
@@ -105,7 +141,13 @@ const comunicacaoFacade = new ComunicacaoFacade(comunicacaoApplication);
 
 
 app.get('/api/comunicacao', async (req, res) => {
-  let comunicacao = await comunicacaoFacade.getAll();
+  let comunicacoes = await comunicacaoFacade.getAll();
+  res.json(comunicacoes);
+})
+
+app.get('/api/comunicacao/:id', async (req, res) => {
+  let id = req.params.id;
+  let comunicacao = await comunicacaoFacade.get(id);
   res.json(comunicacao);
 })
 
