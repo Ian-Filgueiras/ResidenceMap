@@ -13,6 +13,8 @@ class ComunicacaoRepository extends IComunicacaoRepository {
             idCondomino: comunicacao.idCondomino,
             mensagem_p_para_c: comunicacao.mensagem_p_para_c,
         });
+
+        return novaComunicacao;
     };
   
     get = async (idPorteiro) => {

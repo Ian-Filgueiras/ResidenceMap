@@ -4,7 +4,7 @@ class VisitanteFacade {
     }
     
     adicionarVisitante = async (visitante) => {
-        this.visitanteApplications.adicionarVisitante(visitante);
+      return await this.visitanteApplications.adicionarVisitante(visitante);
     };
   
     get = async (id) => {

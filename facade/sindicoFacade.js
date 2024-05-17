@@ -4,7 +4,7 @@ class SindicoFacade {
     }
     
     adicionarSindico = async (sindico) => {
-        this.sindicoApplications.adicionarSindico(sindico);
+      return await this.sindicoApplications.adicionarSindico(sindico);
     };
   
     get = async (id) => {

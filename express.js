@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.use(express.json())
 
 //Condominio
 const CondominioRepository = require("./repositories/condominioRepository");
@@ -23,6 +24,12 @@ app.get('/api/condominio/:id', async (req, res) => {
   let condominio = await condominioFacade.get(id);
   res.json(condominio);
 })
+
+app.post('/api/condominio', async (req, res) => {
+    let novoCondominio = req.body;
+    let condominioSalvo = await condominioFacade.adicionarCondominio(novoCondominio);
+    res.json(condominioSalvo);
+});
 
 
 //Condomino
@@ -46,10 +53,16 @@ app.get('/api/condomino/:id', async (req, res) => {
   res.json(condomino);
 })
 
+app.post('/api/condomino', async (req, res) => {
+  let novoCondomino = req.body;
+  let condominoSalvo = await condominoFacade.adicionarCondomino(novoCondomino);
+  res.json(condominoSalvo);
+});
+
 //Porteiro
 const PorteiroRepository = require("./repositories/porteiroRepository");
 const PorteiroApplication = require("./applications/porteiroApplications");
-const PorteiroFacade = require("./facade/condominoFacade");
+const PorteiroFacade = require("./facade/porteiroFacade");
 
 const porteiroRepository = new PorteiroRepository();
 const porteiroApplication = new PorteiroApplication(porteiroRepository);
@@ -66,6 +79,12 @@ app.get('/api/porteiro/:id', async (req, res) => {
   let porteiro = await porteiroFacade.get(id);
   res.json(porteiro);
 })
+
+app.post('/api/porteiro', async (req, res) => {
+  let novoPorteiro = req.body;
+  let porteiroSalvo = await porteiroFacade.adicionarPorteiro(novoPorteiro);
+  res.json(porteiroSalvo);
+});
 
 //Sindico
 const SindicoRepository = require("./repositories/sindicoRepository");
@@ -88,6 +107,12 @@ app.get('/api/sindico/:id', async (req, res) => {
   res.json(sindico);
 })
 
+app.post('/api/sindico', async (req, res) => {
+  let novoSindico = req.body;
+  let sindicoSalvo = await sindicoFacade.adicionarSindico(novoSindico);
+  res.json(sindicoSalvo);
+});
+
 //Visitante
 const VisitanteRepository = require("./repositories/visitanteRepository");
 const VisitanteApplication = require("./applications/visitanteApplications");
@@ -108,6 +133,12 @@ app.get('/api/visitante/:id', async (req, res) => {
   let visitante = await visitanteFacade.get(id);
   res.json(visitante);
 })
+
+app.post('/api/visitante', async (req, res) => {
+  let novoVisitante = req.body;
+  let visitanteSalvo = await visitanteFacade.adicionarVisitante(novoVisitante);
+  res.json(visitanteSalvo);
+});
 
 //Reservas
 const ReservasRepository = require("./repositories/reservasRepository");
@@ -130,6 +161,12 @@ app.get('/api/reservas/:id', async (req, res) => {
   res.json(reserva);
 })
 
+app.post('/api/reservas', async (req, res) => {
+  let novaReserva = req.body;
+  let reservasSalvo = await reservasFacade.adicionarReserva(novaReserva);
+  res.json(reservasSalvo);
+});
+
 //Comunicação
 const ComunicacaoRepository = require("./repositories/comunicacaoRepository");
 const ComunicacaoApplication = require("./applications/comunicacaoApplications");
@@ -150,6 +187,12 @@ app.get('/api/comunicacao/:id', async (req, res) => {
   let comunicacao = await comunicacaoFacade.get(id);
   res.json(comunicacao);
 })
+
+app.post('/api/comunicacao', async (req, res) => {
+  let novaComunicacao = req.body;
+  let comunicacaoSalvo = await comunicacaoFacade.adicionarComunicacao(novaComunicacao);
+  res.json(comunicacaoSalvo);
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

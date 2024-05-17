@@ -12,6 +12,8 @@ class CondominioRepository extends ICondominioRepository {
             endereco: condominio.endereco,
             numero_unidades: condominio.numero_unidades,
         });
+        
+        return novoCondominio; 
     };
   
     get = async (id) => {

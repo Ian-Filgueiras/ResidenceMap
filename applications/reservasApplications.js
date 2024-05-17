@@ -4,7 +4,7 @@ class ReservasApplication {
     }
     
     adicionarReserva = async (reserva) => {
-        this.reservasRepository.adicionarReserva(reserva);
+      return await this.reservasRepository.adicionarReserva(reserva);
     };
   
     get = async (id) => {

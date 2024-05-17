@@ -14,6 +14,8 @@ class PorteiroRepository extends IPorteiroRepository {
             telefone: porteiro.telefone,
             idCondominio: porteiro.idCondominio,
         });
+
+        return novoPorteiro;
     };
   
     get = async (id) => {

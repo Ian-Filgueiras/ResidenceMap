@@ -4,7 +4,7 @@ class ComunicacaoFacade {
     }
     
     adicionarComunicacao = async (comunicacao) => {
-        this.comunicacaoFacade.adicionarComunicacao(comunicacao);
+      return await this.comunicacaoFacade.adicionarComunicacao(comunicacao);
     };
   
     get = async (idPorteiro) => {

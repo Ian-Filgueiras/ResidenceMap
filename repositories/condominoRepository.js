@@ -15,6 +15,8 @@ class CondominoRepository extends ICondominoRepository {
             logradouro: condomino.logradouro,
             idCondominio: condomino.idCondominio,
         });
+
+        return novoCondomino;
     };
   
     get = async (id) => {

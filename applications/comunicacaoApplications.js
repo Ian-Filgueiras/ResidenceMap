@@ -4,7 +4,7 @@ class ComunicacaoApplication {
     }
     
     adicionarComunicacao = async (comunicacao) => {
-        this.comunicacaoRepository.adicionarComunicacao(comunicacao);
+      return await this.comunicacaoRepository.adicionarComunicacao(comunicacao);
     };
   
     get = async (idPorteiro) => {

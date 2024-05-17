@@ -13,6 +13,8 @@ class ReservasRepository extends IReservasRepository {
       descricao: reservas.descricao,
       idCondomino: reservas.idCondomino,
     });
+
+    return novaReservas;
   };
 
   get = async (id) => {

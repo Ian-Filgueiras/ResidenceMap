@@ -13,6 +13,8 @@ class VisitantesRepository extends iVisitantesRepository {
             data_visita: visitante.data_visita,
             idCondomino: visitante.idCondomino,
         });
+
+        return novoVisitante;
     };
 
     get = async (id) => {

@@ -14,6 +14,8 @@ class SindicoRepository extends iSindicoRepository {
             telefone: sindico.telefone,
             idCondominio: sindico.idCondominio,
         });
+
+        return novoSindico;
     };
   
     get = async (id) => {

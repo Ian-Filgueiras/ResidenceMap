@@ -4,7 +4,7 @@ class CondominioFacade{
     }
 
     adicionarCondominio = async (condominio) => {
-      this.condominioApplication.adicionarCondominio(condominio);
+      return this.condominioApplication.adicionarCondominio(condominio);
     };
   
     get = async (id) => {

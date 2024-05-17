@@ -4,7 +4,7 @@ class CondominioApplication{
     }
 
     adicionarCondominio = async (condominio) => {
-        this.condominioRepository.adicionarCondominio(condominio);
+      return this.condominioRepository.adicionarCondominio(condominio);
     };
   
     get = async (id) => {
@@ -15,10 +15,6 @@ class CondominioApplication{
       return await this.condominioRepository.getAll();
     };
 }
-
-
-
-
 
 
 module.exports = CondominioApplication;

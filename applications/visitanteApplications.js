@@ -4,7 +4,7 @@ class VisitanteApplication {
     }
     
     adicionarVisitante = async (visitante) => {
-        this.visitanteRepository.adicionarVisitante(visitante);
+      return await this.visitanteRepository.adicionarVisitante(visitante);
     };
   
     get = async (id) => {

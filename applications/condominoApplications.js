@@ -4,7 +4,7 @@ class CondominoApplication {
     }
     
     adicionarCondomino = async (condomino) => {
-        this.condominoRepository.adicionarCondominio(condomino);
+      return await this.condominoRepository.adicionarCondomino(condomino);
     };
   
     get = async (id) => {

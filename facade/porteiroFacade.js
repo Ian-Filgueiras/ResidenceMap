@@ -4,7 +4,7 @@ class PorteiroFacade {
     }
     
     adicionarPorteiro = async (porteiro) => {
-        this.porteiroApplications.adicionarPorteiro(porteiro);
+      return await this.porteiroApplications.adicionarPorteiro(porteiro);
     };
   
     get = async (id) => {
