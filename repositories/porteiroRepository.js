@@ -30,6 +30,20 @@ class PorteiroRepository extends IPorteiroRepository {
       let porteiros = await Porteiro.findAll({});
       return porteiros;
     };
+
+    async update(id, updatedPorteiro) {
+      // Implementação real usando Sequelize
+      const [updatedRowCount, [updatedPorteiroRecord]] = await Porteiro.update(updatedPorteiro, {
+        where: { id },
+        returning: true, // Para retornar essa bosta atualizada
+      });
+  
+      if (updatedRowCount === 0) {
+        throw new Error('Porteiro não registrado');
+      }
+  
+      return updatedPorteiroRecord;
+    }
   }
   
   module.exports = PorteiroRepository;

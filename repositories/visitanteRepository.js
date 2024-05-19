@@ -29,6 +29,20 @@ class VisitantesRepository extends iVisitantesRepository {
         let visitantes = await Visitante.findAll({});
         return visitantes;
     };
+
+    async update(id, updatedVisitante) {
+        // Implementação real usando Sequelize
+        const [updatedRowCount, [updatedVisitanteRecord]] = await Visitante.update(updatedVisitante, {
+          where: { id },
+          returning: true, // Para retornar essa bosta atualizada
+        });
+    
+        if (updatedRowCount === 0) {
+          throw new Error('Visitante não registrado');
+        }
+    
+        return updatedSindicoRecord;
+      }
 }
 
 module.exports = VisitantesRepository;

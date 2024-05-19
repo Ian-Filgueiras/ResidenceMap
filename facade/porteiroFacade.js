@@ -14,6 +14,10 @@ class PorteiroFacade {
     getAll = async () => {
       return await this.porteiroApplications.getAll();
     };
+
+    async updatePorteiro(id, updatedPorteiro) {
+      return await this.porteiroApplications.update(id, updatedPorteiro);
+    }
   }
   
   module.exports = PorteiroFacade;

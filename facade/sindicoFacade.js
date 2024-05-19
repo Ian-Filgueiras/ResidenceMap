@@ -14,6 +14,10 @@ class SindicoFacade {
     getAll = async () => {
       return await this.sindicoApplications.getAll();
     };
+
+    async updateSindico(id, updatedSindico) {
+      return await this.sindicoApplications.update(id, updatedSindico);
+    }
   }
   
   module.exports = SindicoFacade;

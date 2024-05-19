@@ -14,6 +14,10 @@ class VisitanteFacade {
     getAll = async () => {
       return await this.visitanteApplications.getAll();
     };
+
+    async updateVisitante(id, updatedVisitante) {
+      return await this.visitanteApplications.update(id, updatedVisitante);
+    }
   }
   
   module.exports = VisitanteFacade;

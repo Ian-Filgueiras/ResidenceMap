@@ -31,6 +31,21 @@ class CondominoRepository extends ICondominoRepository {
       let condominos = await Condomino.findAll({});
       return condominos;
     };
+
+    
+    async update(id, updatedCondominio) {
+      // Implementação real usando Sequelize
+      const [updatedRowCount, [updatedCondominioRecord]] = await Condominio.update(updatedCondominio, {
+        where: { id },
+        returning: true, // Para retornar o registro atualizado
+      });
+  
+      if (updatedRowCount === 0) {
+        throw new Error('Condominio não encontrado');
+      }
+  
+      return updatedCondominioRecord;
+    }
   }
   
   module.exports = CondominoRepository;

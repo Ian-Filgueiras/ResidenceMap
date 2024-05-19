@@ -29,6 +29,20 @@ class ReservasRepository extends IReservasRepository {
     let reservas = await Reservas.findAll({});
     return reservas;
   };
+
+  async update(id, updatedReservas) {
+    // Implementação real usando Sequelize
+    const [updatedRowCount, [updatedReservasRecord]] = await Reservas.update(updatedReservas, {
+      where: { id },
+      returning: true, // Para retornar essa bosta atualizada
+    });
+
+    if (updatedRowCount === 0) {
+      throw new Error('Nenhuma reserva encontrada');
+    }
+
+    return updatedReservasRecord;
+  }
 }
 
 module.exports = ReservasRepository;
