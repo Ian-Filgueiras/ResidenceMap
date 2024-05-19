@@ -20,7 +20,7 @@ class SindicoFacade {
   };
 
   deleteSindico = async (id) => {
-    return await this.sindicoApplications.delete(id);
+    return await this.sindicoApplications.deleteSindico(id);
   };
 }
 

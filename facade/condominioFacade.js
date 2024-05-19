@@ -16,11 +16,11 @@ class CondominioFacade {
   };
 
   async updateCondominio(id, updatedCondominio) {
-    return await this.condominioApplications.update(id, updatedCondominio);
+    return await this.condominioApplication.update(id, updatedCondominio);
   }
 
   deleteCondominio = async (id) => {
-    return await this.condominioApplications.delete(id);
+    return await this.condominioApplication.deleteCondominio(id);
   };
 }
 

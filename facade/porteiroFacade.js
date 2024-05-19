@@ -20,7 +20,7 @@ class PorteiroFacade {
   };
 
   deletePorteiro = async (id) => {
-    return await this.porteiroApplications.delete(id);
+    return await this.porteiroApplications.deletePorteiro(id);
   };
 }
 

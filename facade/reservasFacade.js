@@ -20,7 +20,7 @@ class ReservasFacade {
   };
 
   deleteReserva = async (id) => {
-    return await this.reservasApplications.delete(id);
+    return await this.reservasApplications.deleteReserva(id);
   };
 }
 

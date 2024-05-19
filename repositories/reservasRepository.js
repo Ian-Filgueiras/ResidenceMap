@@ -42,7 +42,15 @@ class ReservasRepository extends IReservasRepository {
     }
 
     return updatedReservasRecord;
-  }
+  };
+
+  deleteReserva = async (id) => {
+    let reserva = await Reserva.findOne({
+      where: { id: id },
+    });
+    await reserva.destroy();
+    return reserva;
+  };
 }
 
 module.exports = ReservasRepository;

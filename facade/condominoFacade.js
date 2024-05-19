@@ -20,7 +20,7 @@ class CondominoFacade {
   };
 
   deleteCondomino = async (id) => {
-    return await this.condominoApplications.delete(id);
+    return await this.condominoApplications.deleteCondomino(id);
   };
 }
 

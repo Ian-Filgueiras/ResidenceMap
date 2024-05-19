@@ -26,9 +26,9 @@ app.get('/api/condominio/:id', async (req, res) => {
 })
 
 app.post('/api/condominio', async (req, res) => {
-    let novoCondominio = req.body;
-    let condominioSalvo = await condominioFacade.adicionarCondominio(novoCondominio);
-    res.json(condominioSalvo);
+  let novoCondominio = req.body;
+  let condominioSalvo = await condominioFacade.adicionarCondominio(novoCondominio);
+  res.json(condominioSalvo);
 });
 
 app.put('/api/condominio/:id', async (req, res) => {
@@ -38,6 +38,11 @@ app.put('/api/condominio/:id', async (req, res) => {
   res.json(condominioAtualizado);
 });
 
+app.delete('/api/condominio/:id', async (req, res) => {
+  let id = req.params.id;
+  let condominioRemovido = await condominioFacade.deleteCondominio(id);
+  res.json(condominioRemovido);
+});
 
 
 //Condomino
@@ -76,6 +81,12 @@ app.put('/api/condomino/:id', async (req, res) => {
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
+});
+
+app.delete('/api/condomino/:id', async (req, res) => {
+  let id = req.params.id;
+  let condominoRemovido = await condominoFacade.deleteCondomino(id);
+  res.json(condominoRemovido);
 });
 
 
@@ -117,6 +128,11 @@ app.put('/api/porteiro/:id', async (req, res) => {
   }
 });
 
+app.delete('/api/porteiro/:id', async (req, res) => {
+  let id = req.params.id;
+  let porteiroRemovido = await porteiroFacade.deletePorteiro(id);
+  res.json(porteiroRemovido);
+});
 
 //Sindico
 const SindicoRepository = require("./repositories/sindicoRepository");
@@ -150,10 +166,16 @@ app.put('/api/sindico/:id', async (req, res) => {
   let updatedSindico = req.body;
   try {
     let sindicoAtualizado = await sindicoFacade.updateSindico(id, updatedSindico);
-    res.json(porteiroAtualizado);
+    res.json(sindicoAtualizado);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
+});
+
+app.delete('/api/sindico/:id', async (req, res) => {
+  let id = req.params.id;
+  let sindicoRemovido = await sindicoFacade.deleteSindico(id);
+  res.json(sindicoRemovido);
 });
 
 //Visitante
@@ -194,6 +216,12 @@ app.put('/api/visitante/:id', async (req, res) => {
   }
 });
 
+app.delete('/api/visitante/:id', async (req, res) => {
+  let id = req.params.id;
+  let visitanteRemovido = await visitanteFacade.deleteVisitante(id);
+  res.json(visitanteRemovido);
+});
+
 //Reservas
 const ReservasRepository = require("./repositories/reservasRepository");
 const ReservasApplication = require("./applications/reservasApplications");
@@ -232,6 +260,12 @@ app.put('/api/reservas/:id', async (req, res) => {
   }
 });
 
+app.delete('/api/reserva/:id', async (req, res) => {
+  let id = req.params.id;
+  let reservaRemovido = await reservaFacade.deleteReserva(id);
+  res.json(reservaRemovido);
+});
+
 //Comunicação
 const ComunicacaoRepository = require("./repositories/comunicacaoRepository");
 const ComunicacaoApplication = require("./applications/comunicacaoApplications");
@@ -259,6 +293,12 @@ app.post('/api/comunicacao', async (req, res) => {
   res.json(comunicacaoSalvo);
 });
 
+app.delete('/api/comunicacao/:id', async (req, res) => {
+  let id = req.params.id;
+  let comunicacaoRemovido = await comunicacaoFacade.deleteComunicacao(id);
+  res.json(comunicacaoRemovido);
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-})
+});

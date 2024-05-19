@@ -16,7 +16,7 @@ class ComunicacaoFacade {
   };
 
   deleteComunicacao = async(id) => {
-    return await this.comunicacaoFacade.delete(id);
+    return await this.comunicacaoFacade.deleteComunicacao(id);
   };
 }
 

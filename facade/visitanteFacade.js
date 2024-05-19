@@ -20,7 +20,7 @@ class VisitanteFacade {
   };
 
   deleteVisitante = async (id) => {
-    return await this.visitanteApplications.delete(id);
+    return await this.visitanteApplications.deleteVisitante(id);
   };
 }
 
