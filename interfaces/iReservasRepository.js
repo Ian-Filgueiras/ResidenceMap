@@ -16,6 +16,10 @@ class IReservasRepository {
     getAll = async () => {
         throw new Error("Esse método não pode ser chamado")
     };
-  }
-  
-  module.exports = IReservasRepository;
+
+    deleteReserva = async (id) => {
+        throw new Error("Esse método não pode ser chamado")
+    };
+}
+
+module.exports = IReservasRepository;

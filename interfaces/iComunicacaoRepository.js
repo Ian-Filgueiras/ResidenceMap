@@ -1,4 +1,4 @@
-class iComunicacaoRepository{
+class iComunicacaoRepository {
     constructor() {
         if (new.target === iComunicacaoRepository) {
             throw new Error("A interface iComunicacaoRepository não pode ser instanciada.");
@@ -14,6 +14,10 @@ class iComunicacaoRepository{
     }
 
     getAll = async () => {
+        throw new Error("Esse método não pode ser chamado")
+    };
+
+    deleteComunicacao = async (id) => {
         throw new Error("Esse método não pode ser chamado")
     };
 }

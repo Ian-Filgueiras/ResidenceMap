@@ -1,4 +1,4 @@
-class iSindicoRepository{
+class iSindicoRepository {
     constructor() {
         if (new.target === iSindicoRepository) {
             throw new Error("A interface iSindicoRepository não pode ser instanciada.");
@@ -14,6 +14,10 @@ class iSindicoRepository{
     }
 
     getAll = async () => {
+        throw new Error("Esse método não pode ser chamado")
+    };
+
+    deleteSindico = async (id) => {
         throw new Error("Esse método não pode ser chamado")
     };
 }
