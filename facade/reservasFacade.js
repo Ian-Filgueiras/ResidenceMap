@@ -14,6 +14,10 @@ class ReservasFacade {
     getAll = async () => {
       return await this.reservasApplications.getAll();
     };
+
+    async updateReservas(id, updatedReservas) {
+      return await this.reservasApplications.update(id, updatedReservas);
+    }
   }
   
   module.exports = ReservasFacade;

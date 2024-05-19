@@ -28,6 +28,19 @@ class CondominioRepository extends ICondominioRepository {
       let condominios = await Condominio.findAll({});
       return condominios;
     };
+
+    async update(id, updatedCondominio) {
+      const [updatedRowCount, [updatedCondominioRecord]] = await Condominio.update(updatedCondominio, {
+        where: { id },
+        returning: true, // Pra retornar essa bosta atualizada
+      });
+  
+      if (updatedRowCount === 0) {
+        throw new Error('Condominio não encontrado');
+      }
+  
+      return updatedCondominioRecord;
+    }
   }
   
   module.exports = CondominioRepository;

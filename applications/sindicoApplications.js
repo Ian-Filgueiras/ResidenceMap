@@ -14,6 +14,10 @@ class SindicoApplication {
     getAll = async () => {
       return await this.sindicoRepository.getAll();
     };
+
+    async update(id, updatedSindico) {
+      return await this.sindicoRepository.update(id, updatedSindico);
+    }
   }
   
   module.exports = SindicoApplication;

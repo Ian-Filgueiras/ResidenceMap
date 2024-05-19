@@ -14,6 +14,10 @@ class CondominoApplication {
     getAll = async () => {
       return await this.condominoRepository.getAll();
     };
+
+    async update(id, updatedCondomino) {
+      return await this.condominoRepository.update(id, updatedCondomino);
+    }
   }
   
   module.exports = CondominoApplication;

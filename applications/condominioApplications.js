@@ -14,6 +14,10 @@ class CondominioApplication{
     getAll = async () => {
       return await this.condominioRepository.getAll();
     };
+
+    async update(id, updatedCondominio) {
+      return await this.condominioRepository.update(id, updatedCondominio);
+    }
 }
 
 

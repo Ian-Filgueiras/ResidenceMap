@@ -14,6 +14,10 @@ class CondominioFacade{
     getAll = async () => {
       return await this.condominioApplication.getAll();
     };
+
+    async updateCondominio(id, updatedCondominio) {
+      return await this.condominioApplications.update(id, updatedCondominio);
+    }
 }
 
 

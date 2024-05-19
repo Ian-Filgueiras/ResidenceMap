@@ -14,6 +14,10 @@ class VisitanteApplication {
     getAll = async () => {
       return await this.visitanteRepository.getAll();
     };
+
+    async update(id, updatedVisitante) {
+      return await this.visitanteRepository.update(id, updatedVisitante);
+    }
   }
   
   module.exports = VisitanteApplication;

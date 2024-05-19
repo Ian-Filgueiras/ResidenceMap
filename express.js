@@ -31,6 +31,14 @@ app.post('/api/condominio', async (req, res) => {
     res.json(condominioSalvo);
 });
 
+app.put('/api/condominio/:id', async (req, res) => {
+  let id = req.params.id;
+  let updatedCondominio = req.body;
+  let condominioAtualizado = await condominioFacade.updateCondominio(id, updatedCondominio);
+  res.json(condominioAtualizado);
+});
+
+
 
 //Condomino
 const CondominoRepository = require("./repositories/condominoRepository");
@@ -59,6 +67,18 @@ app.post('/api/condomino', async (req, res) => {
   res.json(condominoSalvo);
 });
 
+app.put('/api/condomino/:id', async (req, res) => {
+  let id = req.params.id;
+  let updatedCondomino = req.body;
+  try {
+    let condominoAtualizado = await condominoFacade.updateCondomino(id, updatedCondomino);
+    res.json(condominoAtualizado);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+});
+
+
 //Porteiro
 const PorteiroRepository = require("./repositories/porteiroRepository");
 const PorteiroApplication = require("./applications/porteiroApplications");
@@ -86,6 +106,18 @@ app.post('/api/porteiro', async (req, res) => {
   res.json(porteiroSalvo);
 });
 
+app.put('/api/porteiro/:id', async (req, res) => {
+  let id = req.params.id;
+  let updatedPorteiro = req.body;
+  try {
+    let porteiroAtualizado = await porteiroFacade.updatePorteiro(id, updatedPorteiro);
+    res.json(porteiroAtualizado);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+});
+
+
 //Sindico
 const SindicoRepository = require("./repositories/sindicoRepository");
 const SindicoApplication = require("./applications/sindicoApplications");
@@ -111,6 +143,17 @@ app.post('/api/sindico', async (req, res) => {
   let novoSindico = req.body;
   let sindicoSalvo = await sindicoFacade.adicionarSindico(novoSindico);
   res.json(sindicoSalvo);
+});
+
+app.put('/api/sindico/:id', async (req, res) => {
+  let id = req.params.id;
+  let updatedSindico = req.body;
+  try {
+    let sindicoAtualizado = await sindicoFacade.updateSindico(id, updatedSindico);
+    res.json(porteiroAtualizado);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
 });
 
 //Visitante
@@ -140,6 +183,17 @@ app.post('/api/visitante', async (req, res) => {
   res.json(visitanteSalvo);
 });
 
+app.put('/api/visitante/:id', async (req, res) => {
+  let id = req.params.id;
+  let updatedVisitante = req.body;
+  try {
+    let visitanteAtualizado = await visitanteFacade.updateVisitante(id, updatedVisitante);
+    res.json(visitanteAtualizado);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+});
+
 //Reservas
 const ReservasRepository = require("./repositories/reservasRepository");
 const ReservasApplication = require("./applications/reservasApplications");
@@ -165,6 +219,17 @@ app.post('/api/reservas', async (req, res) => {
   let novaReserva = req.body;
   let reservasSalvo = await reservasFacade.adicionarReserva(novaReserva);
   res.json(reservasSalvo);
+});
+
+app.put('/api/reservas/:id', async (req, res) => {
+  let id = req.params.id;
+  let updatedReservas = req.body;
+  try {
+    let reservaAtualizada = await reservasFacade.updateSindico(id, updatedReservas);
+    res.json(reservaAtualizada);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
 });
 
 //Comunicação
