@@ -31,7 +31,7 @@ class CondominioRepository extends ICondominioRepository {
 
   async update(id, updatedCondominio) {
     const [updatedRowCount, [updatedCondominioRecord]] = await Condominio.update(updatedCondominio, {
-      where: { id },
+      where: { id: id },
       returning: true, // Pra retornar essa bosta atualizada
     });
 
