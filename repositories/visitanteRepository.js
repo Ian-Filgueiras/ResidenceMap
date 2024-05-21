@@ -31,18 +31,19 @@ class VisitantesRepository extends iVisitantesRepository {
     };
 
     async update(id, updatedVisitante) {
-        // Implementação real usando Sequelize
-        const [updatedRowCount, [updatedVisitanteRecord]] = await Visitante.update(updatedVisitante, {
-            where: { id },
-            returning: true, // Para retornar essa bosta atualizada
+        const [updatedRowCount] = await Visitante.update(updatedVisitante, {
+          where: { id : id}
         });
-
+    
         if (updatedRowCount === 0) {
-            throw new Error('Visitante não registrado');
+          throw new Error('Visitante não encontrado');
         }
-
-        return updatedSindicoRecord;
-    };
+    
+        
+        const updatedVisitanteRecord = await Visitante.findOne({ where: { id } });
+    
+        return updatedVisitanteRecord;
+      };
 
     deleteVisitante = async (id) => {
         let visitante = await Visitante.findOne({

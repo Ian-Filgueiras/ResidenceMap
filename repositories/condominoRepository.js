@@ -33,19 +33,22 @@ class CondominoRepository extends ICondominoRepository {
   };
 
 
-  async update(id, updatedCondominio) {
-    // Implementação real usando Sequelize
-    const [updatedRowCount, [updatedCondominioRecord]] = await Condominio.update(updatedCondominio, {
-      where: { id },
-      returning: true, // Para retornar o registro atualizado
+  async update(id, updatedCondomino) {
+    
+    const [updatedRowCount] = await Condomino.update(updatedCondomino, {
+      where: { id : id }
     });
 
     if (updatedRowCount === 0) {
-      throw new Error('Condominio não encontrado');
+      throw new Error('Condomino não encontrado');
     }
 
-    return updatedCondominioRecord;
+    
+    const updatedCondominoRecord = await Condomino.findOne({ where: { id } });
+
+    return updatedCondominoRecord;
   };
+
 
   deleteCondomino = async (id) => {
     let condomino = await Condomino.findOne({

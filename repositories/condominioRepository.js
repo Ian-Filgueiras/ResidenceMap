@@ -30,17 +30,21 @@ class CondominioRepository extends ICondominioRepository {
   };
 
   async update(id, updatedCondominio) {
-    const [updatedRowCount, [updatedCondominioRecord]] = await Condominio.update(updatedCondominio, {
-      where: { id: id },
-      returning: true, // Pra retornar essa bosta atualizada
+    
+    const [updatedRowCount] = await Condominio.update(updatedCondominio, {
+      where: { id : id}
     });
 
     if (updatedRowCount === 0) {
       throw new Error('Condominio não encontrado');
     }
 
+    
+    const updatedCondominioRecord = await Condominio.findOne({ where: { id } });
+
     return updatedCondominioRecord;
-  }
+  };
+
 
   deleteCondominio = async (id) => {
     let condominio = await Condominio.findOne({

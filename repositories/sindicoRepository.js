@@ -32,15 +32,15 @@ class SindicoRepository extends iSindicoRepository {
   };
 
   async update(id, updatedSindico) {
-    // Implementação real usando Sequelize
-    const [updatedRowCount, [updatedSindicoRecord]] = await Sindico.update(updatedSindico, {
-      where: { id },
-      returning: true, // Para retornar essa bosta atualizada
+    const [updatedRowCount] = await Sindico.update(updatedSindico, {
+      where: { id : id}
     });
 
     if (updatedRowCount === 0) {
-      throw new Error('Sindico não registrado');
+      throw new Error('Síndico não encontrado');
     }
+
+    const updatedSindicoRecord = await Sindico.findOne({ where: { id } });
 
     return updatedSindicoRecord;
   };
