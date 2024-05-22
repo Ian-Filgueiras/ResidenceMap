@@ -5,134 +5,20 @@ const port = 3000
 app.use(express.json())
 
 //Condominio
-const CondominioRepository = require("./repositories/condominioRepository");
-const CondominioApplication = require("./applications/condominioApplications");
-const CondominioFacade = require("./facade/condominioFacade");
-
-const condominioRepository = new CondominioRepository();
-const condominioApplication = new CondominioApplication(condominioRepository);
-const condominioFacade = new CondominioFacade(condominioApplication);
-
-
-app.get('/api/condominio', async (req, res) => {
-  let condominios = await condominioFacade.getAll();
-  res.json(condominios);
-})
-
-app.get('/api/condominio/:id', async (req, res) => {
-  let id = req.params.id;
-  let condominio = await condominioFacade.get(id);
-  res.json(condominio);
-})
-
-app.post('/api/condominio', async (req, res) => {
-  let novoCondominio = req.body;
-  let condominioSalvo = await condominioFacade.adicionarCondominio(novoCondominio);
-  res.json(condominioSalvo);
-});
-
-app.put('/api/condominio/:id', async (req, res) => {
-  let id = req.params.id;
-  let updatedCondominio = req.body;
-  let condominioAtualizado = await condominioFacade.updateCondominio(id, updatedCondominio);
-  res.json(condominioAtualizado);
-});
-
-app.delete('/api/condominio/:id', async (req, res) => {
-  let id = req.params.id;
-  let condominioRemovido = await condominioFacade.deleteCondominio(id);
-  res.json(condominioRemovido);
-});
+const condominioRouter = require("./routes/condominioRouter");
+app.use("/api/condominio",condominioRouter)
 
 
 //Condomino
-const CondominoRepository = require("./repositories/condominoRepository");
-const CondominoApplication = require("./applications/condominoApplications");
-const CondominoFacade = require("./facade/condominoFacade");
-
-const condominoRepository = new CondominoRepository();
-const condominoApplication = new CondominoApplication(condominoRepository);
-const condominoFacade = new CondominoFacade(condominoApplication);
-
-
-app.get('/api/condomino', async (req, res) => {
-  let condominos = await condominoFacade.getAll();
-  res.json(condominos);
-})
-
-app.get('/api/condomino/:id', async (req, res) => {
-  let id = req.params.id;
-  let condomino = await condominoFacade.get(id);
-  res.json(condomino);
-})
-
-app.post('/api/condomino', async (req, res) => {
-  let novoCondomino = req.body;
-  let condominoSalvo = await condominoFacade.adicionarCondomino(novoCondomino);
-  res.json(condominoSalvo);
-});
-
-app.put('/api/condomino/:id', async (req, res) => {
-  let id = req.params.id;
-  let updatedCondomino = req.body;
-  try {
-    let condominoAtualizado = await condominoFacade.updateCondomino(id, updatedCondomino);
-    res.json(condominoAtualizado);
-  } catch (error) {
-    res.status(404).json({ error: error.message });
-  }
-});
-
-app.delete('/api/condomino/:id', async (req, res) => {
-  let id = req.params.id;
-  let condominoRemovido = await condominoFacade.deleteCondomino(id);
-  res.json(condominoRemovido);
-});
+const condominoRouter = require("./routes/condominoRouter");
+app.use("/api/condomino",condominoRouter)
 
 
 //Porteiro
-const PorteiroRepository = require("./repositories/porteiroRepository");
-const PorteiroApplication = require("./applications/porteiroApplications");
-const PorteiroFacade = require("./facade/porteiroFacade");
-
-const porteiroRepository = new PorteiroRepository();
-const porteiroApplication = new PorteiroApplication(porteiroRepository);
-const porteiroFacade = new PorteiroFacade(porteiroApplication);
+const porteiroRouter = require("./routes/porteiroRouter");
+app.use("/api/porteiro",porteiroRouter)
 
 
-app.get('/api/porteiro', async (req, res) => {
-  let porteiros = await porteiroFacade.getAll();
-  res.json(porteiros);
-})
-
-app.get('/api/porteiro/:id', async (req, res) => {
-  let id = req.params.id;
-  let porteiro = await porteiroFacade.get(id);
-  res.json(porteiro);
-})
-
-app.post('/api/porteiro', async (req, res) => {
-  let novoPorteiro = req.body;
-  let porteiroSalvo = await porteiroFacade.adicionarPorteiro(novoPorteiro);
-  res.json(porteiroSalvo);
-});
-
-app.put('/api/porteiro/:id', async (req, res) => {
-  let id = req.params.id;
-  let updatedPorteiro = req.body;
-  try {
-    let porteiroAtualizado = await porteiroFacade.updatePorteiro(id, updatedPorteiro);
-    res.json(porteiroAtualizado);
-  } catch (error) {
-    res.status(404).json({ error: error.message });
-  }
-});
-
-app.delete('/api/porteiro/:id', async (req, res) => {
-  let id = req.params.id;
-  let porteiroRemovido = await porteiroFacade.deletePorteiro(id);
-  res.json(porteiroRemovido);
-});
 
 //Sindico
 const SindicoRepository = require("./repositories/sindicoRepository");
