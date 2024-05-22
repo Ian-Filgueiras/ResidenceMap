@@ -21,48 +21,9 @@ app.use("/api/porteiro",porteiroRouter)
 
 
 //Sindico
-const SindicoRepository = require("./repositories/sindicoRepository");
-const SindicoApplication = require("./applications/sindicoApplications");
-const SindicoFacade = require("./facade/sindicoFacade");
+const sindicoRouter = require("./routes/sindicoRouter");
+app.use("/api/sindico",sindicoRouter)
 
-const sindicoRepository = new SindicoRepository();
-const sindicoApplication = new SindicoApplication(sindicoRepository);
-const sindicoFacade = new SindicoFacade(sindicoApplication);
-
-
-app.get('/api/sindico', async (req, res) => {
-  let sindicos = await sindicoFacade.getAll();
-  res.json(sindicos);
-})
-
-app.get('/api/sindico/:id', async (req, res) => {
-  let id = req.params.id;
-  let sindico = await sindicoFacade.get(id);
-  res.json(sindico);
-})
-
-app.post('/api/sindico', async (req, res) => {
-  let novoSindico = req.body;
-  let sindicoSalvo = await sindicoFacade.adicionarSindico(novoSindico);
-  res.json(sindicoSalvo);
-});
-
-app.put('/api/sindico/:id', async (req, res) => {
-  let id = req.params.id;
-  let updatedSindico = req.body;
-  try {
-    let sindicoAtualizado = await sindicoFacade.updateSindico(id, updatedSindico);
-    res.json(sindicoAtualizado);
-  } catch (error) {
-    res.status(404).json({ error: error.message });
-  }
-});
-
-app.delete('/api/sindico/:id', async (req, res) => {
-  let id = req.params.id;
-  let sindicoRemovido = await sindicoFacade.deleteSindico(id);
-  res.json(sindicoRemovido);
-});
 
 //Visitante
 const VisitanteRepository = require("./repositories/visitanteRepository");

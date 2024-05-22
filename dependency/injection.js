@@ -24,4 +24,13 @@ const porteiroRepository = new PorteiroRepository();
 const porteiroApplication = new PorteiroApplication(porteiroRepository);
 const porteiroFacade = new PorteiroFacade(porteiroApplication);
 
-module.exports = {condominoFacade, condominioFacade, porteiroFacade}
+//Sindico
+const SindicoRepository = require("../repositories/sindicoRepository");
+const SindicoApplication = require("../applications/sindicoApplications");
+const SindicoFacade = require("../facade/sindicoFacade");
+
+const sindicoRepository = new SindicoRepository();
+const sindicoApplication = new SindicoApplication(sindicoRepository);
+const sindicoFacade = new SindicoFacade(sindicoApplication);
+
+module.exports = {condominoFacade, condominioFacade, porteiroFacade, sindicoFacade}
