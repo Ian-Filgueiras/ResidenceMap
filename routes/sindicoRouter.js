@@ -1,5 +1,5 @@
 const express = require("express");
-const sindicoController = require("../controllers/porteiroController");
+const sindicoController = require("../controllers/sindicoController");
 const router = express.Router();
 
 router.get("/", sindicoController.getAll);

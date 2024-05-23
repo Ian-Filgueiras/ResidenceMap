@@ -33,4 +33,40 @@ const sindicoRepository = new SindicoRepository();
 const sindicoApplication = new SindicoApplication(sindicoRepository);
 const sindicoFacade = new SindicoFacade(sindicoApplication);
 
-module.exports = {condominoFacade, condominioFacade, porteiroFacade, sindicoFacade}
+//Visitante
+const VisitanteRepository = require("../repositories/visitanteRepository");
+const VisitanteApplication = require("../applications/visitanteApplications");
+const VisitanteFacade = require("../facade/visitanteFacade");
+
+const visitanteRepository = new VisitanteRepository();
+const visitanteApplication = new VisitanteApplication(visitanteRepository);
+const visitanteFacade = new VisitanteFacade(visitanteApplication);
+
+//Reservas
+const ReservasRepository = require("../repositories/reservasRepository");
+const ReservasApplication = require("../applications/reservasApplications");
+const ReservasFacade = require("../facade/reservasFacade");
+
+const reservasRepository = new ReservasRepository();
+const reservasApplication = new ReservasApplication(reservasRepository);
+const reservasFacade = new ReservasFacade(reservasApplication);
+
+//Comunicação
+const ComunicacaoRepository = require("../repositories/comunicacaoRepository");
+const ComunicacaoApplication = require("../applications/comunicacaoApplications");
+const ComunicacaoFacade = require("../facade/comunicacaoFacade");
+
+const comunicacaoRepository = new ComunicacaoRepository();
+const comunicacaoApplication = new ComunicacaoApplication(comunicacaoRepository);
+const comunicacaoFacade = new ComunicacaoFacade(comunicacaoApplication);
+
+
+module.exports = {
+    condominoFacade, 
+    condominioFacade, 
+    porteiroFacade, 
+    sindicoFacade, 
+    visitanteFacade,
+    reservasFacade,
+    comunicacaoFacade
+}
