@@ -5,12 +5,12 @@ Sistema de controle de condomínios residenciais
 ## Rotas Disponíveis
 
 - [x] CRUD de Condomínio
-- [ ] CRUD de Condômino
-- [ ] CRUD de Porteiro
-- [ ] CRUD de Síndico
-- [ ] CRUD de Visitante
-- [ ] CRUD de Reservas
-- [ ] CRUD de Comunuicação
+- [x] CRUD de Condômino
+- [x] CRUD de Porteiro
+- [x] CRUD de Síndico
+- [x] CRUD de Visitante
+- [x] CRUD de Reservas
+- [x] CRUD de Comunuicação
 
 ## Execução da Aplicação
 
