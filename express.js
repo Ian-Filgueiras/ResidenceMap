@@ -4,6 +4,10 @@ const port = 3000
 
 app.use(express.json())
 
+
+const routerAuth = require("./routes/authRouter");
+app.use("/api/auth", routerAuth);
+
 //Condominio
 const condominioRouter = require("./routes/condominioRouter");
 app.use("/api/condominio",condominioRouter)
@@ -32,9 +36,6 @@ app.use("/api/reservas",reservasRouter)
 //Comunicação
 const comunicacaoRouter = require("./routes/comunicacaoRouter");
 app.use("/api/comunicacao",comunicacaoRouter)
-
-const routerAuth = require("./routes/authRouter");
-app.use("/api/auth", routerAuth);
 
 
 app.listen(port, () => {
