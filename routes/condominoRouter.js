@@ -1,11 +1,12 @@
 const express = require("express");
 const condominoController = require("../controllers/condominoController");
 const router = express.Router();
+const isAuth = require("../middleware/isAuth");
 
-router.get("/", condominoController.getAll);
-router.get("/:id", condominoController.get);
-router.post("/", condominoController.post);
-router.put("/:id", condominoController.put);
-router.delete("/:id", condominoController.delete);
+router.get("/", isAuth, condominoController.getAll);
+router.get("/:id", isAuth, condominoController.get);
+router.post("/", isAuth, condominoController.post);
+router.put("/:id", isAuth, condominoController.put);
+router.delete("/:id", isAuth, condominoController.delete);
 
 module.exports = router;

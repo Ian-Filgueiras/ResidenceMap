@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-module.exports = (req, res, next) => {
+module.exports = (req, res, next) => { 
   const authHeader = req.get("Authorization");
 
   if (!authHeader) {
@@ -25,7 +25,7 @@ module.exports = (req, res, next) => {
     throw error;
   }
 
-  req.id_usuario = tokenDecodificado.id_usuario;
+  req.id = tokenDecodificado.id;
 
   next();
 };

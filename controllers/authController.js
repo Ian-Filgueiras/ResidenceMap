@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const { Condomino } = require("../data/dbContext");
 const jwt = require("jsonwebtoken");
 
-exports.singup = (req, res) =>{
+exports.signup = (req, res) =>{
     const nome = req.body.nome;
     const email = req.body.email;
     const senha = req.body.senha;
