@@ -1,14 +1,13 @@
 const { condominoFacade } = require("../dependency/injection");
 
 module.exports.getAll = async (req, res) => {
-    let condominos = await condominoFacade.getAll;
+    let condominos = await condominoFacade.getAll();
     res.status(200).json(condominos)
 }
 
 module.exports.get = async (req, res) => {
     let id = req.params.id;
     let condomino = await condominoFacade.get(id);
-
     res.status(200).json(condomino)
 }
 
