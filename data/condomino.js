@@ -10,15 +10,15 @@ module.exports = (sequelize, DataTypes) => {
           unique: true,
         },
         nome: {
-          type: DataTypes.STRING(100),
+          type: DataTypes.STRING(150),
           allowNull: false,
         },
         email: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING(200),
             allowNull: false,
         },
         senha: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         telefone: {

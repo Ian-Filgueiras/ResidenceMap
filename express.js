@@ -33,6 +33,10 @@ app.use("/api/reservas",reservasRouter)
 const comunicacaoRouter = require("./routes/comunicacaoRouter");
 app.use("/api/comunicacao",comunicacaoRouter)
 
+const routerAuth = require("./routes/authRouter");
+app.use("/api/auth", routerAuth);
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 });
