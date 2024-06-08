@@ -1,11 +1,13 @@
 const express = require("express");
 const porteiroController = require("../controllers/porteiroController");
 const router = express.Router();
+const isAuth = require("../middleware/isAuth");
 
-router.get("/", porteiroController.getAll);
-router.get("/:id", porteiroController.get);
-router.post("/", porteiroController.post);
-router.put("/:id", porteiroController.put);
-router.delete("/:id", porteiroController.delete);
+
+router.get("/", isAuth, porteiroController.getAll);
+router.get("/:id", isAuth, porteiroController.get);
+router.post("/", isAuth, porteiroController.post);
+router.put("/:id", isAuth, porteiroController.put);
+router.delete("/:id", isAuth, porteiroController.delete);
 
 module.exports = router;

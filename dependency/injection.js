@@ -60,6 +60,14 @@ const comunicacaoRepository = new ComunicacaoRepository();
 const comunicacaoApplication = new ComunicacaoApplication(comunicacaoRepository);
 const comunicacaoFacade = new ComunicacaoFacade(comunicacaoApplication);
 
+//Area
+const AreaRepository = require("../repositories/areaRepository");
+const AreaApplication = require("../applications/areaApplications");
+const AreaFacade = require("../facade/areaFacade");
+
+const areaRepository = new AreaRepository();
+const areaApplication = new AreaApplication(areaRepository);
+const areaFacade = new AreaFacade(areaApplication);
 
 module.exports = {
     condominoFacade, 
@@ -68,5 +76,6 @@ module.exports = {
     sindicoFacade, 
     visitanteFacade,
     reservasFacade,
-    comunicacaoFacade
+    comunicacaoFacade,
+    areaFacade
 }

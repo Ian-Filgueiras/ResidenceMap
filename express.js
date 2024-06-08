@@ -4,38 +4,24 @@ const port = 3000
 
 app.use(express.json())
 
-
 const routerAuth = require("./routes/authRouter");
 app.use("/api/auth", routerAuth);
-
-//Condominio
 const condominioRouter = require("./routes/condominioRouter");
 app.use("/api/condominio",condominioRouter)
-
-//Condomino
 const condominoRouter = require("./routes/condominoRouter");
 app.use("/api/condomino",condominoRouter)
-
-//Porteiro
 const porteiroRouter = require("./routes/porteiroRouter");
 app.use("/api/porteiro",porteiroRouter)
-
-//Sindico
 const sindicoRouter = require("./routes/sindicoRouter");
 app.use("/api/sindico",sindicoRouter)
-
-//Visitante
 const visitanteRouter = require("./routes/visitanteRouter");
 app.use("/api/visitante",visitanteRouter)
-
-//Reservas
 const reservasRouter = require("./routes/reservasRouter");
 app.use("/api/reservas",reservasRouter)
-
-
-//Comunicação
 const comunicacaoRouter = require("./routes/comunicacaoRouter");
 app.use("/api/comunicacao",comunicacaoRouter)
+const AreaRouter = require("./routes/areaRouter");
+app.use("/api/Area", AreaRouter)
 
 
 app.listen(port, () => {

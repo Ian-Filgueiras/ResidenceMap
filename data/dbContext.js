@@ -30,7 +30,7 @@ const Condomino = require("./condomino")(sequelize, DataTypes);
 const Comunicacao = require("./comunicacao")(sequelize, DataTypes);
 const Reservas = require("./reservas")(sequelize, DataTypes);
 const Visitante = require("./visitante")(sequelize, DataTypes);
-//const ComunicacaoJuncao = require('./comunicacaoJuncao')(sequelize, DataTypes);
+const Area = require("./area.js")( sequelize, DataTypes);
 
 sequelize
   .sync({ alter: true })
@@ -65,10 +65,16 @@ Condominio.hasMany(Sindico, {
 Condomino.hasMany(Reservas,{
   foreignKey: 'idCondomino'
 })
+Area.hasMany(Reservas,{
+  foreignKey: 'idArea'
+})
+
 
 Condomino.hasMany(Visitante,{
   foreignKey: 'idCondomino'
 })
+
+
 
 module.exports = {
   Condominio,
@@ -77,5 +83,6 @@ module.exports = {
   Condomino,
   Comunicacao,
   Reservas,
-  Visitante
+  Visitante,
+  Area
 };

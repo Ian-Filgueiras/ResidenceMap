@@ -24,7 +24,4 @@ docker-compose up -d
 # Execução da API Express
 node express.js
 
-# Preenchimento das tabelas do Banco (rodar apenas uma vez)
-node console.js
-
 ```

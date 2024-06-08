@@ -17,9 +17,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             allowNull: false,
         },
-        descricao: {
-            type: DataTypes.STRING(255),
-            allowNull: false,
+        idArea: {
+          type: DataTypes.INTEGER,
         },
         idCondomino: {
           type: DataTypes.INTEGER,
