@@ -5,6 +5,7 @@ const isAuth = require("../middleware/isAuth");
 
 router.get("/", isAuth, reservasController.getAll);
 router.get("/:id", isAuth, reservasController.get);
+router.put("/", isAuth, reservasController.buscarReservaArea);
 router.post("/", isAuth, reservasController.post);
 router.put("/:id", isAuth, reservasController.put);
 router.delete("/:id", isAuth, reservasController.delete);

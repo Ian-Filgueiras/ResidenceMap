@@ -4,7 +4,7 @@ class ReservasFacade {
   }
 
   adicionarReserva = async (reservas) => {
-    return await this.c.adicionarReserva(reservas);
+    return await this.reservasApplications.adicionarReserva(reservas);
   };
 
   get = async (id) => {
@@ -22,6 +22,10 @@ class ReservasFacade {
   deleteReserva = async (id) => {
     return await this.reservasApplications.deleteReserva(id);
   };
+
+  async buscarReservaArea(reserva, area) {
+    return await this.reservasApplications.buscarReservaArea(reserva,area)
+  }
 }
 
 module.exports = ReservasFacade;

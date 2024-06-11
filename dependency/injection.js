@@ -42,13 +42,22 @@ const visitanteRepository = new VisitanteRepository();
 const visitanteApplication = new VisitanteApplication(visitanteRepository);
 const visitanteFacade = new VisitanteFacade(visitanteApplication);
 
+//Area
+const AreaRepository = require("../repositories/areaRepository");
+const AreaApplication = require("../applications/areaApplications");
+const AreaFacade = require("../facade/areaFacade");
+
+const areaRepository = new AreaRepository();
+const areaApplication = new AreaApplication(areaRepository);
+const areaFacade = new AreaFacade(areaApplication);
+
 //Reservas
 const ReservasRepository = require("../repositories/reservasRepository");
 const ReservasApplication = require("../applications/reservasApplications");
 const ReservasFacade = require("../facade/reservasFacade");
 
 const reservasRepository = new ReservasRepository();
-const reservasApplication = new ReservasApplication(reservasRepository);
+const reservasApplication = new ReservasApplication(reservasRepository,areaRepository);
 const reservasFacade = new ReservasFacade(reservasApplication);
 
 //Comunicação
@@ -60,14 +69,7 @@ const comunicacaoRepository = new ComunicacaoRepository();
 const comunicacaoApplication = new ComunicacaoApplication(comunicacaoRepository);
 const comunicacaoFacade = new ComunicacaoFacade(comunicacaoApplication);
 
-//Area
-const AreaRepository = require("../repositories/areaRepository");
-const AreaApplication = require("../applications/areaApplications");
-const AreaFacade = require("../facade/areaFacade");
 
-const areaRepository = new AreaRepository();
-const areaApplication = new AreaApplication(areaRepository);
-const areaFacade = new AreaFacade(areaApplication);
 
 module.exports = {
     condominoFacade, 

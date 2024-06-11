@@ -13,10 +13,6 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.DATE,
           allowNull: false,
         },
-        data_fim: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
         idArea: {
           type: DataTypes.INTEGER,
         },

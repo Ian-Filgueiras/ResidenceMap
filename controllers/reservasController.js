@@ -12,6 +12,14 @@ module.exports.get = async (req, res) => {
     res.status(200).json(reserva)
 }
 
+module.exports.buscarReservaArea = async (req, res) =>{
+    let { reserva, area } = req.body;
+    let busca = await reservasFacade.buscarReservaArea(reserva, area);
+    
+    res.status(200).json(busca)
+}
+
+
 module.exports.post = async (req, res) => {
     let novaReserva = req.body;
     let reservasSalvo = await reservasFacade.adicionarReserva(novaReserva);
@@ -30,4 +38,6 @@ module.exports.delete = async (req, res) => {
     let reservaRemovido = await reservasFacade.deleteReserva(id);
     res.status(200).json(reservaRemovido)
 }
+
+
 

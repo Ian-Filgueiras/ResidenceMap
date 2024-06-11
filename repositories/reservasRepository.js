@@ -9,7 +9,6 @@ class ReservasRepository extends IReservasRepository {
   adicionarReserva = async (reservas) => {
     const novaReservas = await Reservas.create({
       data_inicio: reservas.data_inicio,
-      data_fim: reservas.data_fim,
       descricao: reservas.descricao,
       idCondomino: reservas.idCondomino,
     });
@@ -24,6 +23,14 @@ class ReservasRepository extends IReservasRepository {
 
     return reserva;
   };
+
+  buscarPorData = async (data) =>{
+    let reservaNaData = await Reservas.findOne({
+      where: {data_inicio : data}
+    });
+
+    return reservaNaData;
+  }
 
   getAll = async () => {
     let reservas = await Reservas.findAll({});
