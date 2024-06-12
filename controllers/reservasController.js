@@ -13,8 +13,8 @@ module.exports.get = async (req, res) => {
 }
 
 module.exports.buscarReservaArea = async (req, res) =>{
-    let { reserva, area } = req.body;
-    let busca = await reservasFacade.buscarReservaArea(reserva, area);
+    let reserva = req.body;
+    let busca = await reservasFacade.buscarReservaArea(reserva);
     
     res.status(200).json(busca)
 }

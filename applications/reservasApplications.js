@@ -26,12 +26,13 @@ class ReservasApplication {
     return await this.reservasRepository.deleteReserva(id);
   };
 
-  async buscarReservaArea(reserva, area) {
-    let areaDb = await this.areaRepository.get(area);
-    let reservaDb = await this.reservasRepository.buscarPorData(reserva);
+  async buscarReservaArea(reserva) {
+   
+    let reservaDb = await this.reservasRepository.buscarPorData(reserva.data_inicio);
+    let areaDb = await this.areaRepository.get(reserva.idArea);
 
-    let reservaFactory = new ReservaFactory(reservaDb, areaDb).novaReserva();
-
+    let factory = new ReservaFactory(reservaDb, areaDb).novaReserva();
+    let reservaFactory = factory.seReservado();
     return reservaFactory;
   }
 }

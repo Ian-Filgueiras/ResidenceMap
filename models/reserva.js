@@ -6,11 +6,13 @@ class Reserva {
     }
   
     seReservado() {
-      if (!this.reserva) this.reservado = true;
-  
-      this.reservado = false;
-  
-      return this.reserva;
+      if (!this.reserva){
+        this.reservado = false;
+        return this;
+      } 
+      
+      this.reservado = true;
+      return this;
     }
   }
 
